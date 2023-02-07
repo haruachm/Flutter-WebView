@@ -67,7 +67,7 @@ actions: [
 
 **webview_flutter: ^3.0.0**
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
