@@ -1,6 +1,7 @@
 # Flutter WebView 🧐
 
 </br>
+
 ## Flutter WebView & AppBar
 
 ![image](https://user-images.githubusercontent.com/85959639/217237212-833b4e19-a0a8-4ffc-a610-e5ec90301d0c.png)
@@ -36,3 +37,26 @@ body: WebView(
         javascriptMode: JavascriptMode.unrestricted,
       ),
 ```
+
+</br>
+## **앱바(AppBar) 아이콘 버튼 구현하기**
+
+앱바에 아이콘 버튼을 구현하기 위해서는 AppBar의 **actions 매개변수에 위젯들을 넣으면** 오른쪽부터 왼쪽으로 차례대로 위젯들이 배치가 된다.
+
+```dart
+actions: [
+          IconButton(
+              onPressed: () {
+                if (controller != null) {
+                  controller!.loadUrl(homeUrl);
+                }
+              },
+              icon: Icon(Icons.home_filled)),
+        ],
+```
+
+**loadUrl(homeUrl)** : homeUrl로 설정한 URL로 이동하도록 한다.
+
+**controller!** : null이 아닌 값일 때만 homeUrl로 이동이 가능하도록 하도록 한다.
+
+위에 if문으로 분명 null이 아닐 때라고 조건을 주었음에도 controller! 을 해줘서 null이 아님을 보장해줘야 한다.
