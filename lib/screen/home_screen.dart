@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class HomeScreen extends StatelessWidget {
-  final homeUrl = 'https://parkjh7764.tistory.com';
-  WebViewController? controller;
+final homeUrl = Uri.parse('https://parkjh7764.tistory.com');
 
-  HomeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  WebViewController controller = WebViewController()
+    ..setJavaScriptMode(JavaScriptMode.unrestricted)
+    ..loadRequest(homeUrl);
+  HomeScreen({super.key}); //controller 가 const가 아니기 때문에 const를 없애준다.
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Blog'),
-        backgroundColor: Colors.blueAccent,
+        title: Text('HwanE Blog'),
         centerTitle: true,
+        backgroundColor: Colors.amber,
         actions: [
           IconButton(
               onPressed: () {
-                if (controller != null) {
-                  controller!.loadUrl(homeUrl);
-                }
+                controller.loadRequest(homeUrl);
               },
-              icon: Icon(Icons.account_circle_sharp)),
+              icon: Icon(Icons.home_filled)),
         ],
       ),
-      body: WebView(
-        onWebViewCreated: (WebViewController controller) {
-          this.controller = controller;
-        },
-        initialUrl: homeUrl,
-        javascriptMode: JavascriptMode.unrestricted,
+      body: WebViewWidget(
+        controller: controller,
       ),
     );
   }
