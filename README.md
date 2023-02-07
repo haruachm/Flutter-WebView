@@ -1,4 +1,4 @@
-# 🧐 Flutter WebView
+# Flutter WebView 🧐
 
 </br>
 ## Flutter WebView & AppBar
@@ -20,3 +20,19 @@
 | onPageStarted | 웹뷰가 처음 생성되거나, 웹페이지가 새로 로딩이 될 때 실행할 콜백함수를 정의한다. |
 | onPageFinished | 웹페이지 로딩이 끝나면 실행할 콜백함수를 정의한다. |
 | onProgress | 웹페이지가 로딩 중일 때 지속적으로 실행되고 로딩이 끝날 때까지 실행할 콜백함수를 정의한다. |
+
+</br>
+
+## **웹뷰 컨트롤러(WebViewController)**
+
+플러터 앱 내의 버튼을 가지고 웹뷰 화면을 변경하는 등의 제어를 하기 위해서는 '**웹뷰 컨트롤러**'를 이용해 제어가 가능하다.
+
+```dart
+body: WebView(
+        onWebViewCreated: (WebViewController controller) {
+          this.controller = controller; //받아온 컨트롤러를 변수에 넣어준다.
+        },
+        initialUrl: 'https://parkjh7764.tistory.com',
+        javascriptMode: JavascriptMode.unrestricted,
+      ),
+```
