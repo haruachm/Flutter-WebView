@@ -111,7 +111,7 @@ class HomeScreen extends StatelessWidget {
 
 **webview_flutter: ^4.0.2**
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
